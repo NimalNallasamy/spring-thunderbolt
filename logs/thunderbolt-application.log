@@ -1,0 +1,27 @@
+22-09-2020 00:10:16.435 [main] INFO  c.e.t.ThunderboltApplication.logStarting - Starting ThunderboltApplication on Nimbus with PID 14528 (G:\Projects\Thunderbolt\spring-thunderbolt\target\classes started by Nimal in G:\Projects\Thunderbolt\spring-thunderbolt)
+22-09-2020 00:10:16.439 [main] INFO  c.e.t.ThunderboltApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+22-09-2020 00:10:17.904 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+22-09-2020 00:10:18.017 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 96ms. Found 5 JPA repository interfaces.
+22-09-2020 00:10:19.229 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+22-09-2020 00:10:19.243 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+22-09-2020 00:10:19.244 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.38]
+22-09-2020 00:10:19.419 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+22-09-2020 00:10:19.420 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2885 ms
+22-09-2020 00:10:19.704 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+22-09-2020 00:10:19.833 [task-1] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+22-09-2020 00:10:20.016 [task-1] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.21.Final
+22-09-2020 00:10:20.239 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+22-09-2020 00:10:20.459 [task-1] INFO  o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+22-09-2020 00:10:20.567 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+22-09-2020 00:10:20.738 [task-1] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+22-09-2020 00:10:21.010 [task-1] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+22-09-2020 00:10:21.067 [task-1] INFO  org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+22-09-2020 00:10:21.245 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+22-09-2020 00:10:21.248 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+22-09-2020 00:10:21.300 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+22-09-2020 00:10:21.359 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+22-09-2020 00:10:21.664 [main] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener.onApplicationEvent - Triggering deferred initialization of Spring Data repositories…
+22-09-2020 00:10:23.436 [task-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+22-09-2020 00:10:23.446 [task-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+22-09-2020 00:10:24.043 [main] INFO  o.s.d.r.c.DeferredRepositoryInitializationListener.onApplicationEvent - Spring Data repositories initialized!
+22-09-2020 00:10:24.057 [main] INFO  c.e.t.ThunderboltApplication.logStarted - Started ThunderboltApplication in 8.209 seconds (JVM running for 10.151)
