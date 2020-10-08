@@ -4,3 +4,32 @@ springdoc:
   swagger-ui:
     path: /swagger-ui-custom.html
     operationsSorter: method
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  application:
+    name: thunderbolt
+
+  hikari:
+    connectionTimeout: 20000
+    maximumPoolSize: 5
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/thunderbolt
+    username: postgres
+    password: root
+    driverclassname: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
