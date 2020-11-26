@@ -2,6 +2,7 @@ package com.ekart.thunderbolt.controller;
 
 import com.ekart.thunderbolt.DO.ProductSubTypeDO;
 import com.ekart.thunderbolt.service.ProductSubTypeService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import static org.springframework.http.ResponseEntity.status;
 @RestController
 @RequestMapping("/api/subTypes")
 @AllArgsConstructor
+@Tag(name="Product Sub Type" , description = "Product Sub Type APIs")
 public class ProductSubTypeController {
 
     private final Logger LOGGER = LoggerFactory.getLogger(ProductSubTypeController.class);

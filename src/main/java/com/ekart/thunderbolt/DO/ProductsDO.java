@@ -21,7 +21,7 @@ public class ProductsDO {
     private Boolean isFeatured;
 
     public String toString(){
-        return " ProductId : " + getProductId() +
+        return " Product Id : " + getProductId() +
                 "\n Product Name : " + getProductName() +
                 "\n Product Description" + getProductDescription() +
                 "\n Base Rate : " + getBaseRate() +

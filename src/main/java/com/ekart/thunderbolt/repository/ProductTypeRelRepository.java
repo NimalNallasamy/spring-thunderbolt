@@ -4,17 +4,18 @@ import com.ekart.thunderbolt.entity.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductTypeRelRepository extends JpaRepository<ProductTypeRel, Long> {
 
-    ProductTypeRel findByTypeRelId(Long typeRelId);
+    Optional<ProductTypeRel> findByTypeRelId(Long typeRelId);
 
-    List<ProductTypeRel> findByProducts(Products products);
+    Optional<List<ProductTypeRel>> findByProducts(Products products);
 
-    List<ProductTypeRel> findByProductType(ProductType productType);
+    Optional<List<ProductTypeRel>> findByProductType(ProductType productType);
 
-    List<ProductTypeRel> findByProductSubType(ProductSubType productSubType);
+    Optional<List<ProductTypeRel>> findByProductSubType(ProductSubType productSubType);
 
-    List<ProductTypeRel> findByProductBrand(ProductBrand productBrand);
+    Optional<List<ProductTypeRel>> findByProductBrand(ProductBrand productBrand);
 
 }

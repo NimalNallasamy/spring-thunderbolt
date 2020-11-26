@@ -3,6 +3,7 @@ package com.ekart.thunderbolt.controller;
 import com.ekart.thunderbolt.DO.ProductBrandDO;
 import com.ekart.thunderbolt.entity.ProductBrand;
 import com.ekart.thunderbolt.service.ProductBrandService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -19,6 +20,7 @@ import static org.springframework.http.ResponseEntity.status;
 @RestController
 @RequestMapping("/api/brands")
 @AllArgsConstructor
+@Tag(name="Product Brand" , description = "Product Brand APIs")
 public class ProductBrandController {
 
     private final Logger LOGGER = LoggerFactory.getLogger(ProductBrandController.class);

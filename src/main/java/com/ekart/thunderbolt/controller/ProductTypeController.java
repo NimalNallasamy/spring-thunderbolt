@@ -2,6 +2,7 @@ package com.ekart.thunderbolt.controller;
 
 import com.ekart.thunderbolt.DO.ProductTypeDO;
 import com.ekart.thunderbolt.service.ProductTypeService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -19,6 +20,7 @@ import static org.springframework.http.ResponseEntity.status;
 @RequestMapping("/api/types")
 @AllArgsConstructor
 //@NoArgsConstructor
+@Tag(name="Product Type" , description = "Product Type APIs")
 public class ProductTypeController {
 
     private final Logger LOGGER = LoggerFactory.getLogger(ProductTypeController.class);
