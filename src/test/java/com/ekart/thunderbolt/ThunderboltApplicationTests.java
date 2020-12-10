@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 )
 @AutoConfigureMockMvc
 @TestPropertySource(
-		locations = "src/test/resources/application-integrationtesting.yaml"
+		locations = "../../../../resources/application-integrationtesting.yaml"
 )
 class ThunderboltApplicationTests {
 
