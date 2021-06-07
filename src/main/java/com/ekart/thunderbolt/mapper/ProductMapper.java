@@ -67,10 +67,6 @@ public abstract class ProductMapper {
         Double baseRate = roundOffDouble(productDAO.getBaseRate(), "Base Rate");
         Double discountedPrice = productDAO.getDiscountPercentage();
 
-//        if(productsDO.getBaseRate() != null){
-//
-//        }
-
         LOGGER.info("Actual Rate Calculation ::: "+( baseRate - (baseRate * (discountedPrice / 100))));
         return ( baseRate - roundOffDouble(baseRate * (discountedPrice / 100), "Actual Rate"));
     }

@@ -47,9 +47,16 @@ public class ProductController {
     }
 
     @PatchMapping("/{id}")
+    @Operation(
+            summary = "Patch the data of existing product",
+            responses = {
+                 @ApiResponse(description = "Patch the data from product", responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProductDAO.class))),
+                 @ApiResponse(description = "400 BAD_REQUEST", responseCode = "400", content = @Content(mediaType = "application/json"))
+            }
+    )
     public ResponseEntity<ProductDAO> updateProducts(@PathVariable Long id, @RequestBody ProductDAO productDAO){
         LOGGER.info("Inside Update Products Details ::: "+productDAO.toString());
-        ProductDAO savedProductsDo = productsService.patchProductData(id, productDAO);
+        ProductDAO savedProductsDo = productsService.patchProduct(id, productDAO);
         return status(HttpStatus.OK).body(savedProductsDo);
     }
 
@@ -74,18 +81,39 @@ public class ProductController {
     }
 
     @GetMapping("/id/{id}")
+    @Operation(
+            summary = "Get product data by product id",
+            responses = {
+                    @ApiResponse(description = "Product Data for the given id retrieved", responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProductDAO.class))),
+                    @ApiResponse(description = "400 BAD_REQUEST", responseCode = "400", content = @Content(mediaType = "application/json"))
+            }
+    )
     public ResponseEntity<ProductDAO> getProductById(@PathVariable Long id){
         LOGGER.info("Inside Products Controller Fetching the details by product ID ::: "+id);
         return status(HttpStatus.OK).body(productsService.getProductById(id));
     }
 
     @GetMapping("/name/{productName}")
+    @Operation(
+            summary = "Get product data by product name",
+            responses = {
+                    @ApiResponse(description = "Product Data for the given name retrieved", responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProductDAO.class))),
+                    @ApiResponse(description = "400 BAD_REQUEST", responseCode = "400", content = @Content(mediaType = "application/json"))
+            }
+    )
     public ResponseEntity<ProductDAO> getProductById(@PathVariable String productName){
         LOGGER.info("Inside Products Controller Fetching the details by product ID ::: "+productName);
         return status(HttpStatus.OK).body(productsService.getProductByName(productName));
     }
 
     @DeleteMapping("/{id}")
+    @Operation(
+            summary = "Delete product data by product id",
+            responses = {
+                    @ApiResponse(description = "Product Data deleted for the given", responseCode = "200", content = @Content(mediaType = "application/json")),
+                    @ApiResponse(description = "400 BAD_REQUEST", responseCode = "400", content = @Content(mediaType = "application/json"))
+            }
+    )
     public ResponseEntity<String> deleteProductById(@PathVariable Long id){
 
         LOGGER.info("Inside Products Controller, Deleting the products by Product ID : "+id);

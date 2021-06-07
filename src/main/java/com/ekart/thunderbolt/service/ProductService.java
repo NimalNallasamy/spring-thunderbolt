@@ -31,7 +31,7 @@ public class ProductService {
     }
 
     @Transactional
-    public ProductDAO patchProductData(Long productId, ProductDAO productDAO){
+    public ProductDAO patchProduct(Long productId, ProductDAO productDAO){
 
         Product productToBePatched = productRepository.findByProductId(productId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
