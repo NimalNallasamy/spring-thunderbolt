@@ -63,13 +63,14 @@ public class ProductService {
     }
 
     @Transactional
-    public void deleteProductById(Long productId){
+    public String deleteProductById(Long productId){
 
         Product productToBeDeleted = productRepository.findByProductId(productId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
 
         productRepository.delete(productToBeDeleted);
         LOGGER.info("Data Deleted successfully for the given id: "+productId);
+        return "success";
     }
 
 }

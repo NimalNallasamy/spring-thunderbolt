@@ -33,5 +33,18 @@ public class ProductDAO {
                 "\n Is Featured : " + getIsFeatured();
     }
 
+    public String asJSONString(){
+        return "{ \"productID\" : \"" + getProductId() +"\","+
+                "\"productName\" : \"" + getProductName() +"\","+
+                "\"productDescription\" : \"" + getProductDescription() +"\","+
+                "\"baseRate\" : " + getBaseRate() +","+
+                "\"discountPercentage\" : " + getDiscountPercentage() +","+
+                "\"imageUrl\" : \"" + getImageUrl() +"\","+
+                "\"actualRate\" : " + getActualRate() +","+
+                "\"rating\" : " + getRating() +","+
+                "\"isInStock\" : " + getIsInStock() +","+
+                "\"isFeatured\" : " + getIsFeatured()+"}";
+    }
+
 
 }
