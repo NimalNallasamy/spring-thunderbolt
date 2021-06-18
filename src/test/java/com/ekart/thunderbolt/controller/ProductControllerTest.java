@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -51,7 +53,7 @@ public class ProductControllerTest {
         assertEquals(productCreateResponse, productService.createProduct(createProductDAO));
     }
 
-    @Test
+    @Test(expected = ResponseStatusException.class)
     public void getProductById(){
 
         ProductDAO productCreateResponse = new ProductDAO();
@@ -68,9 +70,13 @@ public class ProductControllerTest {
         ProductDAO createdResponse = productService.getProductById(6l);
         Mockito.when(productService.getProductById(6l)).thenReturn(productCreateResponse);
         assertEquals(productCreateResponse, productService.getProductById(6l));
+
+        ResponseStatusException productIdException = new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        Mockito.when(productService.getProductById(-1l)).thenThrow(productIdException);
+        assertEquals(productService.getProductById(-1l), productIdException);
     }
 
-    @Test
+    @Test(expected = ResponseStatusException.class)
     public void getProductByName(){
 
         ProductDAO productCreateResponse = new ProductDAO();
@@ -87,9 +93,13 @@ public class ProductControllerTest {
         ProductDAO createdResponse = productService.getProductByName("New Test Create Product");
         Mockito.when(productService.getProductByName("New Test Create Product")).thenReturn(productCreateResponse);
         assertEquals(productCreateResponse, productService.getProductByName("New Test Create Product"));
+
+        ResponseStatusException productIdException = new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        Mockito.when(productService.getProductByName("%%%")).thenThrow(productIdException);
+        assertEquals(productService.getProductByName("%%%"), productIdException);
     }
 
-    @Test
+    @Test(expected = ResponseStatusException.class)
     public void patchProductById(){
         ProductDAO createProductDAO = new ProductDAO();
         createProductDAO.setProductId(6l);
@@ -113,9 +123,13 @@ public class ProductControllerTest {
         ProductDAO createdResponse = productService.patchProduct(6l, createProductDAO);
         Mockito.when(productService.patchProduct(6l, createProductDAO)).thenReturn(productCreateResponse);
         assertEquals(productCreateResponse, productService.patchProduct(6l, createProductDAO));
+
+        ResponseStatusException productIdException = new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        Mockito.when(productService.getProductById(0l)).thenThrow(productIdException);
+        assertEquals(productService.getProductById(0l), productIdException);
     }
 
-    @Test
+    @Test(expected = ResponseStatusException.class)
     public void deleteProductById(){
 
         ProductDAO productCreateResponse = new ProductDAO();
@@ -132,6 +146,10 @@ public class ProductControllerTest {
         productService.deleteProductById(6l);
         Mockito.when(productService.deleteProductById(6l)).thenReturn("success");
         assertEquals("success", productService.deleteProductById(6l));
+
+        ResponseStatusException productIdException = new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        Mockito.when(productService.getProductById(0l)).thenThrow(productIdException);
+        assertEquals(productService.getProductById(0l), productIdException);
     }
 
 }
