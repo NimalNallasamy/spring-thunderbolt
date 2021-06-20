@@ -32,7 +32,7 @@ public class ProductBrandController {
 
     @PatchMapping("/brand/{id}")
     public ResponseEntity<ProductBrandDAO> patchProductBrand(@PathVariable Long id, @RequestBody ProductBrandDAO productBrandDO){
-        return status(HttpStatus.OK).body(productBrandService.patchProducts(id, productBrandDO));
+        return status(HttpStatus.OK).body(productBrandService.patchProductBrand(id, productBrandDO));
     }
 
     @GetMapping
@@ -52,6 +52,7 @@ public class ProductBrandController {
 
     @DeleteMapping("/brand/{id}")
     public ResponseEntity<String> deleteProductBrandById(@PathVariable Long id){
+        productBrandService.deleteProductById(id);
         JSONObject responseJson = new JSONObject().put("status", 200).put("message", "Product Brand Deleted Successfully");
         return status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(responseJson.toString());
     }

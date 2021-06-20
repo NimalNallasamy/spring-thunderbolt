@@ -33,7 +33,7 @@ public class ProductBrandService {
     }
 
     @Transactional
-    public ProductBrandDAO patchProducts(Long brandId, ProductBrandDAO productBrandDO){
+    public ProductBrandDAO patchProductBrand(Long brandId, ProductBrandDAO productBrandDO){
 
         LOGGER.info("Updating the Product Brand details");
 
@@ -65,6 +65,18 @@ public class ProductBrandService {
         ProductBrand savedProductBrand = productBrandRepository.save(productBrandMapper.mapToDBData(productBrandDAO));
         LOGGER.info("Saved Products Brand "+savedProductBrand);
         return productBrandMapper.mapToDO(savedProductBrand);
+    }
+
+    @Transactional
+    public String deleteProductById(Long productBrandId){
+        LOGGER.info("Inside Product Brand Service");
+        LOGGER.info("Delete product Brand Id ::: "+productBrandId);
+
+        ProductBrand savedProductBrand = productBrandRepository.findByBrandId(productBrandId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        productBrandRepository.delete(savedProductBrand);
+        return "success";
     }
 
 }
